@@ -1,0 +1,38 @@
+<ion-content [class.animated]="isAnimated">
+  <div class="cover" (click)="close()"></div>
+  <ion-list class="list_menu">
+      <ion-item [class.active]="menuList==0" (click)="menuList=0">
+          综合排序
+          <ion-icon item-right name="ios-checkmark"></ion-icon>
+      </ion-item>
+      <ion-item [class.active]="menuList==1" (click)="menuList=1">
+          好评优先
+          <ion-icon item-right name="ios-checkmark"></ion-icon>
+      </ion-item>
+      <ion-item [class.active]="menuList==2" (click)="menuList=2">
+          销量最高
+          <ion-icon name="ios-checkmark"></ion-icon>
+      </ion-item>
+      <ion-item>
+          起送价最低
+          <ion-icon name="ios-checkmark"></ion-icon>
+      </ion-item>
+      <button ion-item>
+          配送最快
+          <ion-icon name="ios-checkmark"></ion-icon>
+      </button>
+      <button ion-item>
+          配送费最低
+          <ion-icon name="ios-checkmark"></ion-icon>
+      </button>
+      <button ion-item>
+          人均从低到高
+          <ion-icon name="ios-checkmark"></ion-icon>
+      </button>
+      <button ion-item>
+          人均从高到低
+          <ion-icon name="ios-checkmark"></ion-icon>
+      </button>
+    </ion-list>
+  </ion-content>
+  

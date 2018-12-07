@@ -1,0 +1,26 @@
+app-icon {
+    display:inline-block;
+    &:before{
+        content:'';
+        float:left;
+        width:30px;
+        height:30px;
+        background-repeat: no-repeat;
+    }    
+    &.app-food:before{
+        background:url('../assets/imgs/app_icon01.ico');
+        background-size: 100% 100%;
+    }    
+    &.app-store:before{
+        background:url('../assets/imgs/app_icon02.ico');
+        background-size: 100% 100%;
+    }    
+    &.app-friut:before{
+        background:url('../assets/imgs/app_icon03.ico');
+        background-size: 100% 100%;
+    }    
+    &.app-drink:before{
+        background:url('../assets/imgs/app_icon04.ico');
+        background-size: 100% 100%;
+    }
+}

@@ -1,0 +1,6 @@
+@function app-font-size($size){
+    @if($size){
+        @return ($size / $font-size-ratio / 10) * 1rem;
+    }
+    @error 'Invalid Font Size';
+}

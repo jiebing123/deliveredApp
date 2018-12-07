@@ -1,0 +1,12 @@
+
+$font-face:'"Helvetica Neue", "Roboto", sans-serif';
+@mixin app-font($size,$font-weight:normal){
+    font-weight:$font-weight;
+    @if($size){
+        font-size:app-font-size($size);
+    }
+}
+
+@mixin app-margin-right($size:10px){
+    margin-right:$size;
+}

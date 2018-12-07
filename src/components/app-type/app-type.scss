@@ -1,0 +1,56 @@
+app-type {
+    margin-top: 92px;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+
+    .content{
+        background:transparent;
+        transform: translateY(100%);
+        animation:transform 1s ease-in;
+
+        &.animated{
+            transform: translateY(0);
+        }
+    }
+    .cover{
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.6);
+        position:absolute;
+    }
+    .list_menu{
+        width:100%;
+        height:auto;
+        margin:0;
+
+        .item{
+            @include app-font(38);
+            min-height: 3.0rem;
+            border:0;
+
+            .icon{
+                opacity:0;
+            }
+
+            &.active{
+                color:#488aff;
+
+                .icon{
+                    opacity:1;
+                }
+            }
+
+            .label{
+                margin: 5px 8px 5px 0;
+            }
+        }
+
+        .item-block .item-inner, .item-block:first-child, .item:nth-child(n + 2), .item.item-block:last-child{
+            border:0;
+        }
+    }
+}

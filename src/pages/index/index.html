@@ -1,0 +1,266 @@
+
+<ion-content (ionScroll)="contentScroll()" [ngClass]="{'no-scroll':animationStart}">
+  <ion-list class="header">
+    <ion-item class="header_list">
+        <h3><ion-icon name="ios-pin"></ion-icon>东方广场(建设路)</h3>
+        <h4 item-end><ion-icon name="qr-scanner"></ion-icon>扫码 <ion-icon name="ios-sunny-outline" class="icon_sunny"></ion-icon>27 &#176;C</h4>
+    </ion-item>
+    <ion-item #search_div class="search">
+      <div class="input_search"><ion-icon name="search"></ion-icon>搜索商家、商品名称</div>
+    </ion-item>
+  
+    <ion-slides class="banner" pager>
+      <ion-slide>
+        <div class="slide_img">
+          <img src="./assets/imgs/banners_01.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide_img">
+          <img src="./assets/imgs/banners_02.png">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide_img">
+          <img src="./assets/imgs/banners_03.png">
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-list>
+
+  <ion-grid class="grid_icon">
+    <ion-row text-center>
+      <ion-col><app-icon name="food"></app-icon><h3>美食</h3></ion-col>
+      <ion-col><app-icon name="store"></app-icon><h3>商超便利店</h3></ion-col>
+      <ion-col><app-icon name="friut"></app-icon><h3>水果</h3></ion-col>
+      <ion-col><app-icon name="drink"></app-icon><h3>甜品饮品</h3></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list class="btn_last-buy">
+    <ion-item>
+      <ion-label>附近买过</ion-label>
+      <p item-end>共26家<ion-icon name="ios-arrow-forward"></ion-icon></p>
+    </ion-item>
+    <div class="show_scroll">
+      <dl class="bought_show" text-center #bought_show>
+          <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>粥最棒粥最棒</label>
+            <div>
+              <ion-badge class="bought_border bought_time">
+                一天前购买
+              </ion-badge>
+            </div>
+          </dt>
+          <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>茶香饭香酒..</label>
+            <div>
+              <ion-badge class="bought_border">
+                满20减17
+              </ion-badge>
+            </div>
+          </dt>
+          <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>茶香饭香酒..</label>
+            <div>
+              <ion-badge class="bought_border">
+                满20减17
+              </ion-badge>
+            </div>
+          </dt>
+          <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>茶香饭香酒..</label>
+            <div>
+              <ion-badge class="bought_border">
+                满20减17
+              </ion-badge>
+            </div>
+          </dt>
+          <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>茶香饭香酒..</label>
+            <div>
+              <ion-badge class="bought_border">
+                满20减17
+              </ion-badge>
+            </div>
+          </dt>
+          <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>茶香饭香酒..</label>
+            <div>
+              <ion-badge class="bought_border">
+                满20减17
+              </ion-badge>
+            </div>
+          </dt>
+          <!-- <dt>
+            <div><img src="./assets/imgs/logo_01.jpg"></div>
+            <label>茶香饭香酒更香</label>
+            <div>
+              <ion-badge class="bought_border">
+                满20减17
+              </ion-badge>
+            </div>
+          </dt> -->
+        </dl>
+    </div>
+  </ion-list>
+
+  <ion-list class="list_shop">
+    <ion-list-header>
+      <h3>推荐商家</h3>
+    </ion-list-header>
+    <ion-row class="row_type" #row_type>
+      <ion-col [class.active]="type=='order'" (click)="btn_type('order')">综合排序<ion-icon name="ios-arrow-down"></ion-icon></ion-col>
+      <ion-col [class.active]="type=='long'" (click)="btn_type('long')">距离最近</ion-col>
+      <ion-col [class.active]="type=='select'">筛选<ion-icon name="ios-funnel-outline"></ion-icon></ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/logo_02.jpg">
+      </ion-thumbnail>
+      <h2>娇娇披萨（建设路店）</h2>
+      <p><ion-icon name="ios-star" class="star"></ion-icon>4.8 &nbsp;&nbsp;月售511</p>
+      <p>起送¥30 &nbsp;&nbsp; 配送¥5 <span>38分钟&nbsp;&nbsp;100m以内</span></p>
+      <div>
+          <ion-badge class="list_border">
+            满20减6
+          </ion-badge>
+          <ion-badge class="list_border">
+            满60减13
+          </ion-badge>
+          <ion-badge class="list_border">
+            满80减18
+          </ion-badge>
+          <ion-badge class="list_border other_border">
+            开具发票
+          </ion-badge>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/logo_03.png">
+      </ion-thumbnail>
+      <h2>娇娇披萨（建设路店）</h2>
+      <p><ion-icon name="ios-star" class="star"></ion-icon>4.8 &nbsp;&nbsp;月售511</p>
+      <p>起送¥30 &nbsp;&nbsp; 配送¥5 <span>38分钟&nbsp;&nbsp;100m以内</span></p>
+      <div>
+          <ion-badge class="list_border">
+            满20减6
+          </ion-badge>
+          <ion-badge class="list_border">
+            满60减13
+          </ion-badge>
+          <ion-badge class="list_border">
+            满80减18
+          </ion-badge>
+          <ion-badge class="list_border other_border">
+            开具发票
+          </ion-badge>
+        </div>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/logo_02.jpg">
+      </ion-thumbnail>
+      <h2>娇娇披萨（建设路店）</h2>
+      <p><ion-icon name="ios-star" class="star"></ion-icon>4.8 &nbsp;&nbsp;月售511</p>
+      <p>起送¥30 &nbsp;&nbsp; 配送¥5 <span>38分钟&nbsp;&nbsp;100m以内</span></p>
+      <div>
+          <ion-badge class="list_border">
+            满20减6
+          </ion-badge>
+          <ion-badge class="list_border">
+            满60减13
+          </ion-badge>
+          <ion-badge class="list_border">
+            满80减18
+          </ion-badge>
+          <ion-badge class="list_border other_border">
+            开具发票
+          </ion-badge>
+        </div>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/logo_03.png">
+      </ion-thumbnail>
+      <h2>娇娇披萨（建设路店）</h2>
+      <p><ion-icon name="ios-star" class="star"></ion-icon>4.8 &nbsp;&nbsp;月售511</p>
+      <p>起送¥30 &nbsp;&nbsp; 配送¥5 <span>38分钟&nbsp;&nbsp;100m以内</span></p>
+      <div>
+          <ion-badge class="list_border">
+            满20减6
+          </ion-badge>
+          <ion-badge class="list_border">
+            满60减13
+          </ion-badge>
+          <ion-badge class="list_border">
+            满80减18
+          </ion-badge>
+          <ion-badge class="list_border other_border">
+            开具发票
+          </ion-badge>
+        </div>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/logo_02.jpg">
+      </ion-thumbnail>
+      <h2>娇娇披萨（建设路店）</h2>
+      <p><ion-icon name="ios-star" class="star"></ion-icon>4.8 &nbsp;&nbsp;月售511</p>
+      <p>起送¥30 &nbsp;&nbsp; 配送¥5 <span>38分钟&nbsp;&nbsp;100m以内</span></p>
+      <div>
+          <ion-badge class="list_border">
+            满20减6
+          </ion-badge>
+          <ion-badge class="list_border">
+            满60减13
+          </ion-badge>
+          <ion-badge class="list_border">
+            满80减18
+          </ion-badge>
+          <ion-badge class="list_border other_border">
+            开具发票
+          </ion-badge>
+        </div>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/logo_03.png">
+      </ion-thumbnail>
+      <h2>娇娇披萨（建设路店）</h2>
+      <p><ion-icon name="ios-star" class="star"></ion-icon>4.8 &nbsp;&nbsp;月售511</p>
+      <p>起送¥30 &nbsp;&nbsp; 配送¥5 <span>38分钟&nbsp;&nbsp;100m以内</span></p>
+      <div>
+          <ion-badge class="list_border">
+            满20减6
+          </ion-badge>
+          <ion-badge class="list_border">
+            满60减13
+          </ion-badge>
+          <ion-badge class="list_border">
+            满80减18
+          </ion-badge>
+          <ion-badge class="list_border other_border">
+            开具发票
+          </ion-badge>
+        </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+  <ion-fab bottom right class="fab_btn">
+    <button ion-fab only-icon><ion-icon name="ios-cart-outline"></ion-icon></button>
+    <button ion-fab only-icon [ngStyle]="{'opacity':isUp}" (click)="go_up()"><ion-icon name="ios-arrow-round-up"></ion-icon></button>
+  </ion-fab>
+
+  <div *ngIf="animationStart">
+    <app-type [start]="animationStart" (onFinish)="close()"></app-type>
+  </div>

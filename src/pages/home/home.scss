@@ -1,0 +1,19 @@
+page-home {
+    .tabs{
+        .tabbar{
+            border:0;
+            box-shadow:0 0 3px #dfdfdf;
+
+            .tab-button{
+                min-height:4.4rem;
+
+                .tab-button-text{
+                    @include app-font(30);
+                }
+            }
+
+            .icon{margin:0;@include app-font(52);height:25px;}
+        }
+        
+    }
+}

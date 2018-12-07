@@ -1,0 +1,319 @@
+page-index {
+    z-index:99999;
+    .header{
+        background-color:lightblue;
+        padding:4px 0 15px;
+        margin-bottom:3px;
+        & > .item-block:first-child{
+            border:0;
+        }
+
+        .header_list{
+            background-color:transparent;
+            color:#fff;
+            padding:0 10px;
+
+            .item-inner{
+                border:0;
+            }
+            .icon{@include app-font(48);}
+            h3{
+                @include app-font(44,bold);
+            }
+            h4{
+                @include app-font(44);
+                margin:10px 4px;
+                .icon_sunny{
+                    margin-left:6px;
+                }
+            }
+        }
+        .search{
+            padding:0 10px;
+            /* position:fixed;
+            top:0; */
+            z-index:10;
+            background-color:lightblue;
+
+            .item-inner{
+                border:0;
+            }
+
+            & .label{
+                margin:0;
+            }
+
+            .input_search{
+                width:100%;
+                height:40px;
+                line-height:40px;
+                box-shadow: 0 0 3px #eee;
+                border-radius:30px;
+                background-color:#fff;
+                color:#ccc;
+                text-align:center;
+                @include app-font(36);
+            }
+        }
+
+        .banner{
+            height:auto;
+            margin-top:16px;
+            padding:0 10px;
+
+            .swiper-slide{
+                width:100%;
+                height:auto;
+            }
+
+            img{
+                border-radius:6px;
+            }
+
+            .swiper-pagination-bullet{
+                width:26px;
+                height:2px;
+                border-radius:0;
+    
+                &.swiper-pagination-bullet-active{
+                    background:#fff;
+                }
+            }
+        }
+    }
+
+    .grid_icon{
+        margin-top:6px;
+        app-icon:before{
+            width:40px;
+            height:40px;
+        }
+        h3{
+            @include app-font(32);
+            margin:4px 0;
+        }
+    }
+
+    .btn_last-buy{
+
+        & .item-block .item-inner, & > .item-block:first-child{
+            border:0;
+        }
+
+        .label{
+            @include app-font(44,bold);
+            color:#333;
+        }
+
+        p:last-child{
+            @include app-font(38);
+            margin-bottom:8px;
+
+            .icon{
+                @include app-font(46);
+                margin-left:8px;
+                margin-right:0;
+            }
+        }
+
+        .show_scroll{
+            width:100%;
+            height:auto;
+            margin-left:16px;
+            //float:left;
+            overflow-y:scroll;
+
+            &::-webkit-scrollbar{display:none;}
+            &::-o-scrollbar{display:none;}
+            &::-moz-scrollbar{display:none;}
+        }
+
+        .bought_show{
+            float:left;
+            width:1000%;
+            margin:0;
+            
+            dt{
+                float:left;
+                max-width:88px;
+                margin:0 10px;
+
+                &:first-child{
+                    margin-left:0;
+                }
+
+                img{
+                    width:60px;
+                    height:70px;
+                    border:1px solid #dfdfdf;
+                    margin:5px 0;
+                }
+
+                label{
+                    @include app-font(38);
+                }
+
+                .bought_border{
+                    border:1px solid #aa6c60;
+                    background-color:transparent;
+                    color:#aa6c60;
+                    border-radius:5px;
+                    @include app-font(28);
+                    margin-top:5px;
+
+                    &.bought_time{
+                        border-color:#6bb0cc;
+                        color:#6bb0cc;
+                    }
+                }
+            }
+        }
+    }
+
+    .list_shop{
+        h3{
+            @include app-font(44,bold);
+            color:#333;
+        }
+
+        .list-header{
+            border:0;
+        }
+
+        .row_type{
+            &.row{
+                padding:5px;
+                border-bottom:0.55px solid #dfdfdf;
+                background-color:#fff;
+                width:100%;
+                /* position: fixed;
+                top: 50px; */
+                z-index: 333;
+
+                .col{
+                    @include app-font(38);
+                    text-align:center;
+
+                    .icon{
+                        margin-left:10px;
+                        margin-right:0;
+                    }
+
+                    &.active{
+                        font-weight:bold;
+                        color:#488aff;
+                    }
+                }
+            }
+            
+        }
+
+        .item{
+            &:nth-child(n + 2),&.item-block:last-child{
+                border-bottom:0.55px solid #dfdfdf;
+            }
+
+            .item-inner{border:0;}
+
+            .list_border{
+                border:1px solid #dfdfdf;
+                background-color:transparent;
+                color:#aa6c60;
+                border-radius:3px;
+                @include app-font(28);
+                margin-top:5px;
+
+                &.other_border{
+                    color:#797979;
+                }
+            }
+
+            ion-thumbnail{
+                &[item-start]{
+                    margin: 0 16px 8px 0;
+                }
+
+                img{
+                    border:1px solid #dfdfdf;
+                    width:auto;
+                    height:80px;
+                    border-radius:6px;
+                }
+            }
+
+            h2{
+                @include app-font(46,bold);
+                margin:5px 0;
+            }
+
+            .star{
+                color:#e16c4a;
+                margin-right:6px;
+            }
+
+            p{
+                span{
+                    text-align: right;
+                    float: right;
+                }
+            }
+
+            ion-badge {
+                padding: 3px 4px;
+            }
+        }
+    }
+
+    .fab_btn{
+        button{
+            color:#7b7b7b;
+            background-color:#fcfcfc;
+            box-shadow:0 0 3px #dfdfdf;
+            width:44px;
+            height:44px;
+            line-height:44px;
+
+            .icon{
+                margin:0;
+                @include app-font(80);
+            }
+
+            &:nth-child(2){
+                color:#fcfcfc;
+                background-color:#7b7b7b;
+                //opacity: 0;
+            }
+        }
+    }
+
+    .modal_div{
+        width:100%;
+        min-height:100%;
+        position: fixed;
+        top: 92px;
+
+        .cover{
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.6);
+            position:absolute;
+        }
+
+        .order_list{
+            width:100%;
+            max-height:80%;
+            margin:0;
+
+            .item{
+                @include app-font(38);
+                min-height: 3.0rem;
+                border:0;
+            }
+
+            .item-block .item-inner, .item-block:first-child, .item:nth-child(n + 2), .item.item-block:last-child{
+                border:0;
+            }
+        }
+    }
+
+}
