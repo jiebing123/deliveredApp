@@ -1,0 +1,43 @@
+# Specifies intentionally untracked files to ignore when using Git
+
+# ignore the build file which is generate by the prepare commmand 
+!www/
+www/*
+!www/assets/
+!www/certificates/
+
+# ignore mapping and IDE setting
+.sourcemaps
+.idea/
+.sourcemaps/
+.sass-cache/
+.tmp/
+.versions/
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+.vscode/
+npm-debug.log*
+tmp/
+temp/
+node_modules/
+/.sourcemaps
+/node_modules
+/platforms/android/assets/www
+/platforms/ios/www
+/www
+/.vscode
+/temp
+
+# ignore platform generate file
+platforms/ios/BEA.xcworkspace/xcshareddata
+platforms/android/CordovaLib
+platforms/browser
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
