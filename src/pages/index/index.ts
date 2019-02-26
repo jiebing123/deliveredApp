@@ -54,7 +54,7 @@ export class IndexPage {
     this.clearPosition(contentTop);
 
     var isUp=0;
-    if(this.content.directionY=='up' && contentTop>100){
+    if(this.content.directionY=='up' && contentTop>=100){
       isUp=1;
     }else if(contentTop<=100){
       isUp=0;
@@ -88,7 +88,9 @@ export class IndexPage {
   }
 
   btn_type(type){
-    this.content.scrollTo(0,(this.row_type.nativeElement.offsetTop - 52),200);
+    if(this.content.scrollTop+2 < this.row_type.nativeElement.offsetTop){
+      this.content.scrollTo(0,(this.row_type.nativeElement.offsetTop - 52),200);
+    }
     this.type=type;
     if(type!='long'){
       this.animationStart=true;
@@ -97,6 +99,10 @@ export class IndexPage {
 
   close(){
     this.animationStart=false;
+  }
+
+  gotoProductList(){
+    this.navCtrl.push('product-list');
   }
 
 }

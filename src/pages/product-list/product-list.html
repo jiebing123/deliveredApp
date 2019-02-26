@@ -1,18 +1,82 @@
-<!--
-  Generated template for the ProductListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>productList</ion-title>
-  </ion-navbar>
+    <app-header class="app-default-theme-1" [mineHeader]="'productList'"></app-header>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="app-default-theme-1" (ionScroll)="onScroll($event)">
+    <div class="item_header">
+        <div class="item_imgLogo">
+            <img src="./assets/imgs/logo_03.png" class="img_logo">
+            <div class="icon_bg_white"><ion-icon name="md-heart-outline" class="icon_pink"></ion-icon></div>
+        </div>
+        <h1>娇娇披萨（建设路店）</h1>
+        <p>评价4.8 &nbsp;|&nbsp; 月售511 7 &nbsp;|&nbsp; 商家配送约32分钟</p>
+        <ion-item class="dosc">
+            <p item-star><label class="icon_pink pink_bg">满减</label>&nbsp;满20减6，满60减13，满80减18</p>
+            <p item-end><label class="dosc_font">5个优惠</label> &nbsp;<ion-icon name="ios-arrow-down"></ion-icon></p>
+        </ion-item>
+    </div>
+
+    <ion-row class="row_tabs" #row_tabs>
+        <ion-col [ngClass]="{'active':slidesIndex==0}" (click)="sel_slide(0)">
+            <label>点餐</label>
+        </ion-col>
+        <ion-col [ngClass]="{'active':slidesIndex==1}" (click)="sel_slide(1)">
+            <label>评价</label>
+        </ion-col>
+        <ion-col [ngClass]="{'active':slidesIndex==2}" (click)="sel_slide(2)">
+            <label>商家</label>
+        </ion-col>
+    </ion-row>
+    <ion-slides>
+        <ion-slide>
+            <div class="slide_content">
+                <!-- <ion-scroll class="scroll_main" scrollY="true"> -->
+                <img src="./assets/imgs/banners_01.png" class="product_logo" *ngIf="!tabScroll">
+                <ion-row class="menu_list">
+                    <ion-col col-3 class="subMenu">
+                        <dl class="bg_grayWhite">
+                            <dt [ngClass]="{'active':product_type==0}" (click)="product_type=0">热销</dt>
+                            <dt [ngClass]="{'active':product_type==1}" (click)="product_type=1">特惠套餐</dt>
+                            <dt [ngClass]="{'active':product_type==2}" (click)="product_type=2">10寸榴莲披萨</dt>
+                            <dt [ngClass]="{'active':product_type==3}" (click)="product_type=3">10寸榴莲披萨特惠</dt>
+                            <dt [ngClass]="{'active':product_type==4}" (click)="product_type=4">12寸榴莲披萨</dt>
+                            <dt [ngClass]="{'active':product_type==5}" (click)="product_type=5">精选意大利面</dt>
+                        </dl>
+                    </ion-col>
+                    <ion-col col-9 class="product_list">
+                        <product-list [type]="product_type" #productList (outer)="addCart($event)"></product-list>
+                    </ion-col>
+                </ion-row>
+            <!-- </ion-scroll> -->
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div>
+              <img src="./assets/imgs/banners_01.png">
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div>
+              <img src="./assets/imgs/banners_01.png">
+            </div>
+        </ion-slide>
+    </ion-slides>
 
 </ion-content>
+
+<ion-footer class="app-default-theme-1 product_footer">
+    <div>
+        <ion-icon name="ios-cube" class="sub_txt"></ion-icon>
+    </div>
+    <p text-center class="orangeLight_bg">满20减6，满60减13，满80减18</p>
+    <ion-item class="grayHeavy_bg">
+        <ion-avatar item-start>
+        </ion-avatar>
+        <h3 class="sub_txt">未选购商品</h3>
+        <p class="sub_txt">另需配送费5元</p>
+        <button class="btn_green" item-end disabled>¥30起送</button>
+    </ion-item>
+</ion-footer>

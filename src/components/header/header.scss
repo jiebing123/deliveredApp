@@ -1,3 +1,65 @@
-header {
+app-header {
+    width:100%;
+    height:$header-bar-height;
 
+    .toolbar-ios,.toolbar-android,.toolbar-md{
+        padding: 0 16px;
+    }
+
+    .item.item-block,.item-ios,.item-android{
+        background:transparent;
+        padding-left:0;
+        .item-inner{
+            border:0;
+            padding-right: 0;
+        }
+        [item-right],[item-end]{
+            margin-right:0;
+
+        }
+        h1{
+            @include app-font(46);
+        }
+
+        .item-button[icon-only]{
+            padding:0;
+            margin:0.4rem 0;
+        }
+
+        button{
+            .icon{
+                margin-right:0;
+            }
+            &:first-child{
+                padding-top:8px;
+                .icon{
+                    padding-right:12px;
+                    margin-right:10px;
+                }
+            }
+        }
+
+        ion-badge{
+            border-radius:6px;
+            @include app-font(16);
+            padding:3px 0;
+            position: absolute;
+            width: 20px;
+            right: 8px;
+            top: 0;
+            z-index:33;
+        }
+    }
+
+    .item_product{
+        .back-button{
+            display:none;
+        }
+
+        .item{
+            color:#fff;
+            @include app-font(56);
+        }
+    }
+    
 }

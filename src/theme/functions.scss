@@ -1,6 +1,181 @@
+@function isVip($themeType:default){
+    @return $themeType==vip;
+}
+
 @function app-font-size($size){
     @if($size){
         @return ($size / $font-size-ratio / 10) * 1rem;
     }
     @error 'Invalid Font Size';
+}
+
+@function app-gradient-error($type,$direction:null,$list:null){
+    $error-msg:'Invalid type `#{$type}`.';
+
+    @if ($direction){
+        $error-msg:'Invalid direction `#{$direction}`.';
+    }
+
+    @if ($list){
+        $error-msg:'Invalid list `#{$list}`.';
+    }
+
+    @error $error-msg;
+    @return null;
+}
+
+@function app-gradient($type:linear,$direction:null,$list:null){
+    @if (not $direction or not $list){
+        @error 'Invalid parameters';
+    }
+
+    @return #{$type}-gradient($direction,$list);
+}
+
+@function app-color-error($themeId,$themeType:null,$component:null,$color-key:null,$isFinal:false){
+    @if ($themeType) {
+        $error-msg: 'Invalid theme type `#{$themeType}` (Theme ##{$themeId}).';
+    }
+
+    @if ($component) {
+        $error-msg: 'Invalid component `#{$component}` (Theme ##{$themeId} #{$themeType}).';
+    }
+
+    @if ($color-key) {
+        $error-msg: 'Invalid color key `#{$color-key}` (Theme ##{$themeId} #{$themeType} `#{$component}`).';
+    }
+
+    @if ($isFinal) {
+        $error-msg: 'Invalid color for key `#{$color-key}` (Theme ##{$themeId} #{$themeType} `#{$component}`).';
+    }
+
+    @error $error-msg;
+
+    @return null;
+}
+
+@function app-color($themeId:1,$themeType:default,$component:content,$color-key:null){
+
+    @if($themeId > 1 and not map-has-key($app-colors,theme-#{$themeId})){
+        $themeId:1;
+    }
+
+    $theme-map:map-get($app-colors,theme-#{$themeId});
+    @if(not $theme-map){
+        @return app-color-error($themeId);
+    }
+
+    @if($themeType!=default and not map-has-key($theme-map,$themeType)){
+        $themeType:default;
+    }
+
+    $component-map:map-get($theme-map,$themeType);
+    @if(not $component-map){
+        @return app-color-error($themeId,$themeType);
+    }
+
+    @if($component!=content and not map-has-key($component-map,$component)){
+        @if($component==inverse-content){
+            $component:content;
+        }@else if($component==inverse-button){
+            $component:button;
+        }
+    }
+
+    $color-values:map-get($component-map,$component);
+    @if(not $color-values and $themeId > 1){
+        $color-values:map-fetch($app-colors,theme-1,$themeType,$component);
+    }
+
+    @if(not $color-values){
+        @return app-color-error($themeId,$themeType,$component);
+    }
+
+    @if($color-key and not map-has-key($color-values,$color-key)){
+        @if($component !=button and $component != inverse-button){
+            $color-key:base;
+        }
+    }
+
+    $color-value:map-get($color-values,$color-key);
+    @if(not $color-value){
+        @if($themeId > 1){
+            @return app-color(1,$themeType,$component,$color-key);
+        }@else if($themeId==1 and isVip($themeType)){
+            @return app-color(1,default,$component,$color-key);
+        }@else if($themeId==1 and not isVip($themeType)){
+            @if($component==button or $component == inverse-button){
+                @return app-color(1,default,$component,primary);
+            }
+        }
+    }
+
+    @if (not $color-value){
+        @return app-color-error($themeId,$themeType,$component,$color-key);
+    }
+
+    @if(type-of($color-value)==color){
+        @return $color-value;
+    }
+
+    @if(type-of($color-value)==map){
+        @if ($component==button){
+            @return map-get($color-value,base);
+        }@else{
+            $gradient-type:map-get($color-value,type);
+            @if(not $gradient-type){
+                @return app-gradient-error($gradient-type);
+            }
+
+            $gradient-direction:map-get($color-value,direction);
+            @if(not $gradient-direction){
+                @return app-gradient-error($gradient-type,$gradient-direction);
+            }
+
+            $gradient-list:map-get($color-value,list);
+            @if(not $gradient-list){
+                @return app-gradient-error($gradient-type,$gradient-direction,$gradient-list);
+            }
+
+            @return app-gradient($gradient-type,$gradient-direction,$gradient-list);
+        }
+    }
+    @return app-color-error($themeId, $themeType, $component, $color-key, true);
+}
+
+@function app-button-color-contrast($themeId, $themeTypes, $color-key) {
+    $color-value: map-fetch($app-colors, theme-#{$themeId}, button, $color-key);
+
+    @if (map-has-key($color-value, contrast)) {
+        @return map-get($color-value, contrast);
+    }
+
+    @return null;
+}
+
+@function app-header-color($themeId: 1, $themeType: default, $color-key: null) {
+    @return app-color($themeId, $themeType, header, $color-key);
+}
+
+@function app-menu-color($themeId: 1, $themeType: default, $color-key: null) {
+    @return app-color($themeId, $themeType, menu, $color-key);
+}
+
+@function app-content-color($themeId: 1, $themeType: default, $color-key: null, $inverse: false) {
+    @if ($inverse) {
+        @return app-color($themeId, $themeType, inverse-content, $color-key);
+    }
+    @return app-color($themeId, $themeType, content, $color-key);
+}
+
+@function app-button-color($themeId: 1, $themeType: default, $color-key: null) {
+    @return app-color($themeId, $themeType, button, $color-key);
+}
+
+@function border_grayLight($themeId: 1, $themeType: default){
+    @return app-content-color($themeId,$themeType,bg_gray,true);
+}
+
+@function border_blue($themeId: 1, $themeType: default){
+    @return app-content-color($themeId,$themeType,blue,true);
 }

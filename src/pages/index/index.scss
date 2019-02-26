@@ -265,6 +265,8 @@ page-index {
     }
 
     .fab_btn{
+        width: 100px;
+        bottom: 60px;
         button{
             color:#7b7b7b;
             background-color:#fcfcfc;
@@ -272,6 +274,7 @@ page-index {
             width:44px;
             height:44px;
             line-height:44px;
+            float:right;
 
             .icon{
                 margin:0;
@@ -281,6 +284,7 @@ page-index {
             &:nth-child(2){
                 color:#fcfcfc;
                 background-color:#7b7b7b;
+                margin-right:10px;
                 //opacity: 0;
             }
         }

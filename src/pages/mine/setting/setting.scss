@@ -1,0 +1,15 @@
+page-setting {
+    .tab_list{
+        h3{
+            height:2.8rem;
+            line-height:2.8rem;
+            .icon{
+                @include app-font(73);
+            }
+        }
+
+        .btn_restar{
+            @include app-font(50);
+        }
+    }
+}

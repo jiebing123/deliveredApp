@@ -1,0 +1,35 @@
+page-notice {
+    .notice_list{
+        .item{
+            &.item-block:last-child, .item-wrapper:last-child .item-block{
+                border:0;
+            }
+
+            ion-thumbnail{
+                position:relative;
+
+                img{
+                    border-radius:5px;
+                }
+
+                .circle{
+                    position:absolute;
+                    top:-5px;
+                    right:-5px;
+                }
+            }
+
+            h2{
+                float:left;
+            }
+
+            .date{
+                @include app-font(36);
+            }
+
+            .sub_txt{
+                @include app-font(40);
+            }
+        }
+    }
+}

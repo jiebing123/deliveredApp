@@ -6,7 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 
 @Component({
-  selector: 'page-mine',
+  selector: 'mine',
   templateUrl: 'mine.html',
 })
 export class MinePage {

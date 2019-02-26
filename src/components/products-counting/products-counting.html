@@ -1,0 +1,5 @@
+<div>
+    <ion-icon name="ios-remove-circle-outline" *ngIf="productsNumber > 0" class="blue_icon" (click)="btn_minus()"></ion-icon>
+    &nbsp;<label class="number" *ngIf="productsNumber > 0">{{productsNumber}}</label>&nbsp;
+    <ion-icon name="md-add-circle" class="blue_icon" (click)="btn_add()"></ion-icon>
+</div>

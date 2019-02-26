@@ -1,22 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
-/**
- * Generated class for the HeaderComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'header',
-  templateUrl: 'header.html'
+  selector: 'app-header',
+  templateUrl: 'header.html',
+  host:{
+    'class':'app-header'
+  }
 })
 export class HeaderComponent {
 
-  text: string;
+  @Input() mineHeader='mine';
+  @Input() headerTitle='';
+  @Input() searchTxt;
+  searchText;
 
-  constructor() {
-    console.log('Hello HeaderComponent Component');
-    this.text = 'Hello World';
+  constructor(public navCtrl:NavController) {
+    
+  }
+
+  ngOnInit(){
+    this.searchText=this.searchTxt;
+  }
+
+  go_back(){
+    this.navCtrl.pop();
   }
 
 }

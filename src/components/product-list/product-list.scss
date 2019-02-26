@@ -1,0 +1,100 @@
+product-list {
+    text-align:left;
+
+    h3{
+        @include app-font(34,bold);
+        color:gray;
+        margin-top: 2rem;
+        margin-bottom:0;
+
+        span{
+            @include app-font(26);
+        }
+    }
+
+    .list{
+        .item{
+            padding-left:0;
+
+            &.item-block .item-inner{
+                border:0;
+            }
+
+            ion-thumbnail{
+                margin: 0 9px 8px 0;
+
+                img{
+                    border: 1px solid #dfdfdf;
+                    width: 80px;
+                    height: 100px;
+                    border-radius: 6px;
+                }
+            }
+
+            h2{
+                @include app-font(34,bold);
+                margin: 8px 0 0;
+            }
+
+            p{
+                @include app-font(24);
+                color:gray;
+            }
+
+            label{
+                @include app-font(24);
+            }
+
+            .list_border{
+                border:1px solid #dfdfdf;
+                background-color:transparent;
+                border-radius:3px;
+                @include app-font(26);
+                margin-top:2px;
+                padding: 1px;
+
+                &.other_border{
+                    color:#797979;
+                }
+            }
+
+            .icon{
+                margin-right:0;
+            }
+
+            .blue_icon{
+                @include app-font(66);
+            }
+
+            .number{
+                @include app-font(56);
+            }
+
+            .item [item-right], .item [item-end]{
+                margin:0;
+            }
+
+            .item{
+                padding-right:0;
+            }
+
+            .price_desc{
+                @include app-font(26);
+                color:gray;
+            }
+
+            .price_bottom{
+                min-height: 2rem;
+
+                .origin_bg,.label{
+                    margin:0;
+                }
+
+                .icon{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,33 @@
-<!-- Generated template for the HeaderComponent component -->
-<div>
-  {{text}}
+
+<div [ngSwitch]="mineHeader">
+    <ion-navbar *ngSwitchCase="'normal'">
+        <ion-title class="title" text-center>{{headerTitle}}</ion-title>
+    </ion-navbar>
+    <ion-list *ngSwitchCase="'search'">
+      <ion-item>
+          <ion-icon name="md-arrow-back" item-start (click)="go_back()"></ion-icon>
+          <ion-input placeholder="搜索商家、商品名称" [(ngModel)]="searchText" class="bg_input"></ion-input>
+          <button ion-button clear item-end class="black_txt btn_search">搜索</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-navbar *ngSwitchCase="'mine'">
+      <ion-item>
+        <h1 item-start>我的</h1>
+        <div item-end>
+          <button ion-button icon-only [navPush]="'notice'"><ion-icon name="ios-notifications-outline"></ion-icon><ion-badge>2</ion-badge></button>
+          <button ion-button icon-only [navPush]="'setting'"><ion-icon name="ios-settings-outline"></ion-icon></button>
+        </div>
+      </ion-item>
+    </ion-navbar>
+
+    <ion-navbar *ngSwitchCase="'productList'" class="item_product">
+      <ion-item>
+        <ion-icon name="md-arrow-back" item-star navPop></ion-icon>
+        <div item-end>
+          <ion-icon name="ios-search"></ion-icon>
+          <ion-icon name="md-more"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-navbar>
 </div>

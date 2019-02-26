@@ -5,7 +5,7 @@
         <h3><ion-icon name="ios-pin"></ion-icon>东方广场(建设路)</h3>
         <h4 item-end><ion-icon name="qr-scanner"></ion-icon>扫码 <ion-icon name="ios-sunny-outline" class="icon_sunny"></ion-icon>27 &#176;C</h4>
     </ion-item>
-    <ion-item #search_div class="search">
+    <ion-item #search_div class="search" [navPush]="'search'">
       <div class="input_search"><ion-icon name="search"></ion-icon>搜索商家、商品名称</div>
     </ion-item>
   
@@ -118,9 +118,9 @@
     <ion-row class="row_type" #row_type>
       <ion-col [class.active]="type=='order'" (click)="btn_type('order')">综合排序<ion-icon name="ios-arrow-down"></ion-icon></ion-col>
       <ion-col [class.active]="type=='long'" (click)="btn_type('long')">距离最近</ion-col>
-      <ion-col [class.active]="type=='select'">筛选<ion-icon name="ios-funnel-outline"></ion-icon></ion-col>
+      <ion-col [class.active]="type=='select'" (click)="btn_type('select')">筛选<ion-icon name="ios-funnel-outline"></ion-icon></ion-col>
     </ion-row>
-    <ion-item>
+    <ion-item (click)="gotoProductList()">
       <ion-thumbnail item-start>
         <img src="./assets/imgs/logo_02.jpg">
       </ion-thumbnail>
@@ -142,7 +142,7 @@
           </ion-badge>
       </div>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="gotoProductList()">
       <ion-thumbnail item-start>
         <img src="./assets/imgs/logo_03.png">
       </ion-thumbnail>
@@ -262,5 +262,5 @@
   </ion-fab>
 
   <div *ngIf="animationStart">
-    <app-type [start]="animationStart" (onFinish)="close()"></app-type>
+    <app-type [start]="animationStart" [chkType]="type" (onFinish)="close()"></app-type>
   </div>

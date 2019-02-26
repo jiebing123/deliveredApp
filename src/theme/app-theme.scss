@@ -1,0 +1,179 @@
+$themeTypes:default vip;
+
+
+@import './functions.scss';
+@import 'mixins.scss';
+
+@for $themeId from 1 through length($app-colors){
+    $theme-map:map-get($app-colors,theme-#{$themeId});
+
+    $themeType:default;
+    @each $themType in $themeTypes{
+        @if(map-has-key($theme-map,$themeType)){
+            .app-#{$themeType}-theme-#{$themeId}{
+
+                button,.button-md,.button-ios,.button-android{
+                    box-shadow:initial;
+                }
+                &.app-header{
+                    @include app-header-style($themeId,$themeType);
+
+                    .toolbar-background{
+                        background:app-header-color($themeId,$themeType,base);
+                        border:0;
+                    }
+
+                    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default,.bar-button-default-android, .bar-button-default.bar-button-android-default, .bar-button-clear-android-default{
+                        color:app-button-color($themeId,$themeType,contrast);
+                    }
+
+                    .title div{
+                        color:app-header-color($themeId,$themeType,contrast);
+                    }
+                }
+
+                ion-badge{
+                    background-color:app-color($themeId,$themeType,icon,active);
+                }
+
+                .tab_list{
+                    label{
+                        color:app-content-color($themeId,$themeType,txt,true);
+                    }
+
+                    .item.item-block [item-end], .item.item-block p{
+                        color:app-content-color($themeId,$themeType,gray,true);
+                    }
+                }
+
+                .bg_toggle{
+                    .toggle-icon{
+                        background-color:app-content-color($themeId,$themeType,toggle,true);
+                    }
+
+                    &.toggle-checked .toggle-icon{
+                        background-color:app-content-color($themeId,$themeType,toggleChecked,true);
+                    }
+                }
+
+                .btn_list{
+                    //background:app-color($themeId,$themeType,button,base);
+                    background:app-header-color($themeId,$themeType,base);
+                    color:app-button-color($themeId,$themeType,contrast);
+
+                    p{
+                        color:app-button-color($themeId,$themeType,contrast);
+                    }
+                }
+
+                .icon_bg{
+                    background-color:app-color($themeId,$themeType,icon,content);
+                }
+
+                .icon_yellow{
+                    color:app-color($themeId,$themeType,icon,yellow);
+                }
+
+                .icon_pink{
+                    color:app-color($themeId,$themeType,icon,pink);
+                }
+
+                .red_icon{
+                    color:app-color($themeId,$themeType,icon,red);
+                }
+
+                .blue_icon{
+                    color:app-color($themeId,$themeType,icon,blue);
+                }
+
+                &.content_bg{
+                    &.content-ios,&.content-android,&.content-md{
+                        background-color:app-content-color($themeId,$themeType,contrast,true);
+                    }
+                }
+
+                .white_bg{
+                    background-color:app-content-color($themeId,$themeType,white,true);
+                    box-shadow:0 0 6px app-content-color($themeId,$themeType,contrast,true);
+                }
+
+                .pink_bg{
+                    background-color:app-content-color($themeId,$themeType,pinkLight,true);
+                }
+
+                .orangeLight_bg{
+                    background-color:app-content-color($themeId,$themeType,orangeLight,true);
+                }
+
+                .grayHeavy_bg{
+                    background-color:app-content-color($themeId,$themeType,bg_grayHeavy,true);
+                }
+
+                .bg_grayLight{
+                    background-color:app-content-color($themeId,$themeType,bg_grayLight,true);
+
+                    &.active{
+                        background-color:app-content-color($themeId,$themeType,bg_blueLight,true);
+                    }
+                }
+
+                .bg_input{
+                    background-color:app-content-color($themeId,$themeType,bg_gray,true);
+                }
+
+                .blue_txt{
+                    color:app-content-color($themeId,$themeType,blue,true);
+                }
+
+                .red_txt{
+                    color:app-content-color($themeId,$themeType,red,true);
+                }
+
+                .yellow_txt{
+                    color:app-content-color($themeId,$themeType,yellow,true);
+                }
+
+                .black_txt{
+                    color:app-content-color($themeId,$themeType,txt,true);
+                }
+
+                .sub_title{
+                    color:app-content-color($themeId,$themeType,sub_title,true);
+                }
+
+                .sub_txt,.list-ios .item-ios .sub_txt,.list-android .item-android .sub_txt{
+                    color:gray;
+                }
+
+                .date,.list-ios .item-ios .date,.list-android .item-android .date{
+                    color:app-content-color($themeId,$themeType,gray,true);
+                }
+
+                .border_color{
+                    border-color:app-content-color($themeId,$themeType,red,true);
+                }
+
+                .icon_bg_white{
+                    background-color:app-content-color($themeId,$themeType,white,true);
+                }
+
+                .bg_grayWhite{
+                    background-color:app-content-color($themeId,$themeType,bg_graywhite,true);
+                }
+
+                .origin_bg{
+                    color:app-content-color($themeId,$themeType,bg_origin,true);
+                }
+
+                .btn_gray{
+                    background-color:app-button-color($themeId,$themeType,grayHeavy);
+                }
+
+                .btn_green{
+                    background-color:app-button-color($themeId,$themeType,green);
+                }
+            }
+        }
+    }
+}
+    

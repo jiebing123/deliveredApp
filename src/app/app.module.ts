@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { ShareModule } from './share.module';
+import { Http } from '@angular/http';
+//import { CommonProvider } from '../providers/common/common';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,13 @@ import { ShareModule } from './share.module';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    ShareModule
+    IonicModule.forRoot(MyApp,{
+      menuType:'push',
+      tabsHideOnSubPages:'true',
+      backButtonText:''
+    }),
+    ShareModule,
+    //Http
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -23,7 +30,9 @@ import { ShareModule } from './share.module';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    //CommonProvider,
+    //Http
   ]
 })
 export class AppModule {}

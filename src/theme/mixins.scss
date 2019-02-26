@@ -10,3 +10,49 @@ $font-face:'"Helvetica Neue", "Roboto", sans-serif';
 @mixin app-margin-right($size:10px){
     margin-right:$size;
 }
+
+@mixin app-header-style($themeId,$themeType){
+    background:app-header-color($themeId,$themeType,base);
+    color:app-header-color($themeId,$themeType,contrast);
+
+    h1{
+        color:app-header-color($themeId,$themeType,contrast);
+    }
+
+    &.transparent-bg{
+        background:transparent;
+    }
+
+    &.toolbar{
+        .bar-button, .toolbar-title{
+            @include app-font(50);
+            color:app-header-color($themeId,$themeType,contrast);
+        }
+
+        .toolbar-title{
+            text-overflow:ellipsis;
+            white-space:initial;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+            display:-webkit-box;
+        }
+    }
+
+    & > .app-header-content{
+        color:app-header-color($themeId,$themeType,contrast);
+        
+    }
+
+    & > .page-tabbar{
+        @include app-font(40);
+        color:app-header-color($themeId,$themeType,contrast);
+
+        & > .page-tab-button {
+            color:app-header-color($themeId,$themeType,contrast);
+
+            &.page-tab-button-highlight{
+                border-color:app-header-color($themeId,$themeType,contrast);
+            }
+        }
+    }
+}

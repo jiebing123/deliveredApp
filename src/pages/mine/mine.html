@@ -1,18 +1,42 @@
-<!--
-  Generated template for the MinePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>mine</ion-title>
-  </ion-navbar>
-
+    <app-header class="app-default-theme-1" [mineHeader]="'mine'"></app-header>
 </ion-header>
+<ion-content class="app-default-theme-1 content_bg">
+    <ion-list>
+        <ion-list-header class="btn_list mine_list">
+            <ion-avatar item-start>
+                <img src="assets/imgs/logo.png">
+            </ion-avatar>
+            <h2>3edbfFF455n5 <label class="icon_bg medal_ionic"><ion-icon class="icon_yellow" name="ios-medal"></ion-icon>超级会员</label></h2>
+            <p><ion-icon name="ios-tablet-portrait"></ion-icon>134***7387</p>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-list-header>
+        <ion-row class="white_bg money_list">
+            <ion-col>
+                <h1 class="blue_txt">0.00<span>元</span></h1>
+                <p>钱包</p>
+            </ion-col>
+            <ion-col>
+                <h1 class="red_txt">10<span>个</span></h1>
+                <p>红包</p>
+            </ion-col>
+            <ion-col>
+                <h1 class="yellow_txt">1<span>个</span></h1>
+                <p>金币</p>
+            </ion-col>
+        </ion-row>
+    </ion-list>
 
-
-<ion-content padding>
-
+    <ion-list>
+        <ion-item>
+            <ion-icon class="red_icon" name="ios-heart"></ion-icon>
+            我的收藏
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-icon class="blue_icon" name="md-headset"></ion-icon>
+            我的客服
+        </ion-item>
+    </ion-list>
 </ion-content>

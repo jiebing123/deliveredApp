@@ -1,0 +1,38 @@
+<ion-header>
+    <app-header class="app-default-theme-2" [mineHeader]="'normal'" [headerTitle]="'账户安全'"></app-header> 
+</ion-header>
+
+<ion-content class="app-default-theme-2">
+    <ion-list class="tab_list">
+        <ion-item (click)="alertAction=true">
+            <label item-start>登录密码</label>
+            <p text-right>修改</p>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+            <label item-start>支付密码</label>
+            <p text-right>未设置</p>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item [navPush]="'account-security'">
+            <label item-start>小额免密支付</label>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+            <label item-start>注销账号{{alertAction}}</label>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<app-alert [alertHeader]="'选择修改方式'" *ngIf="alertAction">
+    <div alert-content>
+        <ion-list>
+            <ion-item>
+                <ion-button clear>通过旧密码</ion-button>
+            </ion-item>
+            <ion-item>
+                <ion-button clear>通过手机验证</ion-button>
+            </ion-item>
+        </ion-list>
+    </div>
+</app-alert>

@@ -1,0 +1,31 @@
+page-account-security {
+
+    .content .tab_list{
+        margin-top:20px;
+        border:0;
+
+        .item.item-block{
+            border:0;
+        }
+    }
+
+    .img_logo{
+        float:left;
+        margin-right:16px;
+    }
+
+    .toggle{
+        width: 38px;
+        height: 20px;
+
+        .toggle-icon,.toggle-icon:before{
+            background-color:#b2b2b2;
+        }
+
+        .toggle-inner{
+            width: 15px;
+            height: 15px;
+            //background-color:#ececec;
+        }
+    }
+}

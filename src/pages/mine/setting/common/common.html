@@ -1,0 +1,40 @@
+<ion-header>
+    <app-header class="app-default-theme-2" [mineHeader]="'normal'" [headerTitle]="'通用'"></app-header> 
+</ion-header>
+
+<ion-content class="app-default-theme-2">
+    <ion-list class="tab_list">
+        <ion-item>
+            <label item-start>清除图片缓存</label>
+            <button ion-button clear item-end>29.61MB &nbsp; | &nbsp; <span class="txt_link">立即清除</span></button>
+        </ion-item>
+        <ion-item (click)="select_show('img')">
+            <label item-start>非WIFI下图片质量</label>
+            <p text-right>{{select_img}}</p>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item (click)="select_show('wifi')">
+            <label item-start>自动下载最新安装包</label>
+            <p text-right>{{select_wifi}}</p>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <div item-start>
+            <!-- <label>支付宝免密支付</label>
+            <p>开通后，可享受一键下单的便捷免密支付体验。</p> -->
+            <label>推送通知</label>
+            <p>包含订单状态、优惠促销等重要信息的推送</p>
+          </div>
+          <ion-toggle item-end class="bg_toggle" checked="false"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <label item-start>摇一摇，截屏反馈问题</label>
+          <ion-toggle item-end class="bg_toggle" checked="false"></ion-toggle>
+        </ion-item>
+
+
+        <ion-select [selectOptions]="selectOptions" [(ngModel)]="select_val" #btn_select style="opacity:0;visibility:hidden;" (ionChange)="select_change()">
+            <ion-option *ngFor="let arr of selectArr">{{arr}}</ion-option>
+        </ion-select>
+    </ion-list>
+</ion-content>

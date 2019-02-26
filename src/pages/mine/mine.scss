@@ -1,3 +1,67 @@
-page-mine {
+mine {
+    .list{
+        &.list-ios > .item-block:last-child, &.list-ios > .item-wrapper:last-child .item-block, 
+        &.list-android > .item-block:last-child, &.list-android > .item-wrapper:last-child .item-block{
+            border:0;
+        }
+    }
+    .mine_list{
+        border:0;
+        text-transform: none;
+        min-height: 9.4rem;
 
+        h2{
+            @include app-font(46);
+        }
+
+        p{
+            margin-top:10px;
+            .icon{
+                margin-right:5px;
+            }
+        }
+
+        ion-avatar{
+            min-width: 56px;
+            min-height: 56px;
+
+            img{
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        .medal_ionic{
+            border-radius:3px;
+            padding:3px;
+            @include app-font(28);
+
+            .icon{
+                margin:0 2px;
+            }
+        }
+    }
+
+    .money_list{
+
+        .col{
+            text-align:center;
+            border-left:1px solid $form-input-txt-color;
+
+            &:first-child{
+                border-left:0;
+            }
+            h1{
+                @include app-font(60);
+                margin:16px 0 5px;
+                span{
+                    @include app-font(10);
+                }
+            }
+
+            p{
+                margin:5px 0 16px;
+            }
+        }
+    }
 }

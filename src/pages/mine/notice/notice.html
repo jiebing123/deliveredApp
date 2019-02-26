@@ -1,0 +1,25 @@
+<ion-header>
+  <app-header class="app-default-theme-2" [mineHeader]="'normal'" [headerTitle]="'通知中心'"></app-header>
+</ion-header>
+
+
+<ion-content class="app-default-theme-1 content_bg">
+  <ion-list class="tab_list notice_list">
+    <ion-item [navPush]="'notice-list'" [navParams]="{name:'订单通知'}">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/mine/notice_01.jpg"/><ion-badge class="circle">&nbsp;</ion-badge>
+      </ion-thumbnail>
+      <h2 class="sub_title">订单通知</h2>
+      <p text-right class="date">昨天19:35</p>
+      <p class="sub_txt">您在「砂锅粥（福田店）」下的订单已...</p>
+    </ion-item>
+    <ion-item [navPush]="'notice-list'" [navParams]="{name:'系统通知'}">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/mine/notice_02.jpg"/><ion-badge class="circle">&nbsp;</ion-badge>
+      </ion-thumbnail>
+      <h2 class="sub_title">系统通知</h2>
+      <p text-right class="date">昨天19:35</p>
+      <p class="sub_txt">周大虾升级拼饭超值优惠，领红包，邀好友解...</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

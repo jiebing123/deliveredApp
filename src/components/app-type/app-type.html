@@ -1,38 +1,37 @@
-<ion-content [class.animated]="isAnimated">
-  <div class="cover" (click)="close()"></div>
-  <ion-list class="list_menu">
-      <ion-item [class.active]="menuList==0" (click)="menuList=0">
-          综合排序
-          <ion-icon item-right name="ios-checkmark"></ion-icon>
-      </ion-item>
-      <ion-item [class.active]="menuList==1" (click)="menuList=1">
-          好评优先
-          <ion-icon item-right name="ios-checkmark"></ion-icon>
-      </ion-item>
-      <ion-item [class.active]="menuList==2" (click)="menuList=2">
-          销量最高
-          <ion-icon name="ios-checkmark"></ion-icon>
-      </ion-item>
-      <ion-item>
-          起送价最低
-          <ion-icon name="ios-checkmark"></ion-icon>
-      </ion-item>
-      <button ion-item>
-          配送最快
-          <ion-icon name="ios-checkmark"></ion-icon>
-      </button>
-      <button ion-item>
-          配送费最低
-          <ion-icon name="ios-checkmark"></ion-icon>
-      </button>
-      <button ion-item>
-          人均从低到高
-          <ion-icon name="ios-checkmark"></ion-icon>
-      </button>
-      <button ion-item>
-          人均从高到低
-          <ion-icon name="ios-checkmark"></ion-icon>
-      </button>
-    </ion-list>
+<ion-content class="app-default-theme-2" [class.animated]="isAnimated">
+    <div class="cover" (click)="close()"></div>
+    <div class="bg_content">
+        <ion-list class="list_menu" *ngIf="type=='order'">
+            <ion-item *ngFor="let order of orderList" [class.active]="menuList==order.id" (click)="btn_orders(order)">
+                {{order.orderName}}
+                <ion-icon item-right name="ios-checkmark"></ion-icon>
+            </ion-item>
+        </ion-list>
+
+        <ion-grid class="list_select" *ngIf="type=='select'">
+            <ion-row><label>商家服务（可多选）</label></ion-row>
+            <ion-row>
+                <ion-col col-4 (click)="moreChk(0)"><div class="bg_grayLight list_col" [ngClass]="{'active':moreChkList.includes(0)}"><ion-icon name="logo-twitter"></ion-icon>蜂鸟专送</div></ion-col>
+                <ion-col col-4 (click)="moreChk(1)"><div class="bg_grayLight list_col" [ngClass]="{'active':moreChkList.includes(1)}"><ion-icon name="ios-time"></ion-icon>准时达</div></ion-col>
+                <ion-col col-4 (click)="moreChk(2)"><div class="bg_grayLight list_col" [ngClass]="{'active':moreChkList.includes(2)}"><ion-icon name="md-cash"></ion-icon>到店自取</div></ion-col>
+                <ion-col col-4 (click)="moreChk(3)"><div class="bg_grayLight list_col" [ngClass]="{'active':moreChkList.includes(3)}"><ion-icon name="md-home"></ion-icon>品牌商家</div></ion-col>
+                <ion-col col-4 (click)="moreChk(4)"><div class="bg_grayLight list_col" [ngClass]="{'active':moreChkList.includes(4)}"><ion-icon name="ios-paper"></ion-icon>开发票</div></ion-col>
+                <ion-col col-4 (click)="moreChk(5)"><div class="bg_grayLight list_col" [ngClass]="{'active':moreChkList.includes(5)}"><ion-icon name="ios-call"></ion-icon>接受预定</div></ion-col>
+            </ion-row>
+            <ion-row><label>优惠活动（单选）</label></ion-row>
+            <ion-row>
+                <ion-col col-4 (click)="selectList=0"><div class="bg_grayLight list_col" [ngClass]="{'active':selectList=='0'}">新用户优惠</div></ion-col>
+                <ion-col col-4 (click)="selectList=1"><div class="bg_grayLight list_col" [ngClass]="{'active':selectList=='1'}">特价商品</div></ion-col>
+                <ion-col col-4 (click)="selectList=2"><div class="bg_grayLight list_col" [ngClass]="{'active':selectList=='2'}">下单立减</div></ion-col>
+                <ion-col col-4 (click)="selectList=3"><div class="bg_grayLight list_col" [ngClass]="{'active':selectList=='3'}">赠品优惠</div></ion-col>
+                <ion-col col-4 (click)="selectList=4"><div class="bg_grayLight list_col" [ngClass]="{'active':selectList=='4'}">下单返红包</div></ion-col>
+                <ion-col col-4 (click)="selectList=5"><div class="bg_grayLight list_col" [ngClass]="{'active':selectList=='5'}">进店领红包</div></ion-col>
+            </ion-row>
+            <ion-row class="btn_bottom">
+                <ion-col col-6><button ion-button clear [disabled]="moreChkList.length==0 && selectList==''" (click)="cancel()">清空</button></ion-col>
+                <ion-col col-6><button ion-button (click)="btnDetail()">查看34443个商家</button></ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
   </ion-content>
   

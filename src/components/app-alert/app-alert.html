@@ -1,0 +1,9 @@
+<ion-backdrop></ion-backdrop>
+<div class="alert_content">
+    <h2>{{alertHeader}}</h2>
+    <div >
+      hhfj
+      <ng-content select="[alert-content]"></ng-content>
+      <ng-container [ngTemplateOutlet]="alertContent"></ng-container>
+    </div>
+</div>

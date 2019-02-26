@@ -9,23 +9,91 @@ body{
     overflow:hidden;
 }
 
-.list{
-    .item-ios,.item-md{
-        padding:0 10px;
+.scroll_main{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    /* white-space:nowrap; */
 
-        &.item-block .item-inner{
+    .scroll-content{
+        overflow-y:scroll;
+    }
+}
+
+.header,.content{
+    .list-ios,.list-android,.list-md{
+        margin: -1px 0 12px;
+        .item-android,.item-ios,.item-md{
+            //padding:0 10px;
+
+            &.item-block .item-inner{
+                padding:0;
+            }
+
+            .label-ios,.label-md{
+                margin:10px 0;
+            }
+
+            & ion-icon[item-right],& ion-icon[item-end]{
+                margin-right:16px;
+            }
+
+            p{
+                color:inherit;
+            }
+
+            
+        }
+
+        & > .item-block:first-child, & > .item-block:last-child, & > .item-wrapper:first-child .item-block, & > .item-wrapper:last-child .item-block, & > .item-block, & > .item-inner{
+            border:0;
+        }
+
+        .item{
+            padding:0 16px;
+            border:0;
+        }
+
+         /* .item-md [item-right], .item-md [item-end],.item-ios [item-right], .item-ios [item-end],.item-android [item-right], .item-android [item-end]{
+            margin:8px 16px;
+        } */ 
+
+        .note{
+            padding-right: 24px;
+        }
+    }
+
+    .tab_list{
+        .item.item-block{
+            border-bottom:1px solid #f5f5f5;
+
+            
+        }
+    }
+
+    ion-badge{
+        &.circle{
+            border-radius:50% 50%;
+            width:10px;
+            height:10px;
             padding:0;
         }
-
-        .label-ios,.label-md{
-            margin:10px 8px 10px 0;
-        }
     }
 
-    /* .item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end]{
-        margin:9px 0;
-    } */
-    .note{
-        padding-right: 24px;
+    p{
+        color:gray;
     }
+
+    .default_border{
+        border: 1px solid #dfdfdf;
+        border-radius: 6px;
+    }
+
+}
+
+a[disabled],button[disabled], [ion-button][disabled],.btn_green[disabled]{
+    opacity:1!important;
+    background-color:app-button-color(1,default,grayHeavy);
+    color:gray;
 }

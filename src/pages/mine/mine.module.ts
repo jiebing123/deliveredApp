@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { MinePage } from './mine';
+import { ShareModule } from '../../app/share.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { MinePage } from './mine';
   ],
   imports: [
     IonicPageModule.forChild(MinePage),
+    ShareModule
   ],
 })
 export class MinePageModule {}

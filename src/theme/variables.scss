@@ -38,9 +38,15 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+
+  dark-gray:#555555,
+  gray:#8e8e8e,
 );
 
+$header-bar-height:48px;
+
+$form-input-txt-color:rgb(177,177,177);
 
 // App iOS Variables
 // --------------------------------------------------
@@ -72,6 +78,97 @@ $colors: (
 
 @import "ionic.theme.default";
 
+$app-colors:(
+  theme-1:(
+    default:(
+      header:(
+        base:(
+          type:linear,
+          direction:left,
+          list:(#56adf1 0%,#4298ef 70%,#368dee 100%)
+        ),
+        contrast:#fff,
+      ),
+      submenu-bar:(
+        base:#f7f7f7,
+        contrast:#898989
+      ),
+      icon:(
+        content:#384242,
+        active:#f53d3d,
+        yellow:#d9af60,
+        red:#ed171f,
+        blue:#4298ef,
+        pink:#c67079
+      ),
+      content:(
+        txt:#fff,
+        contrast:#f5f5f5,
+        sub_title:#435359,
+        toggle:#e5e5e5,
+        toggleChecked:#83d16c,
+        white:#ffffff,
+        blue:#4298ef,
+        red:#bb3a2a,
+        yellow:#d9af60,
+        gray:#9d9d9d,
+        bg_gray:#eaeaea,
+        bg_grayLight:#f9f9f9,
+        bg_blueLight:#e0f0fb,
+        bg_graywhite:#f8f8f8,
+        pinkLight:#f7e6e2,
+        bg_origin:#ce614e,
+        orangeLight:#fdf9d8,
+        bg_grayHeavy:#3b3c3e
+      ),
+      button:(
+        base:(
+          type:linear,
+          direction:left,
+          list:(#56adf1 0%,#4298ef 70%,#368dee 100%)
+        ),
+        contrast:#fff,
+        grayHeavy:#515254,
+        green:#7dca7b
+      ),
+    )
+  ),
+  theme-2:(
+    default:(
+      header:(
+        base:#fff,
+        contrast:#383838,
+      ),
+      content:(
+        txt:#383838,
+        contrast:#eceeeb,
+        sub_title:#435359,
+        toggle:#e5e5e5,
+        toggleChecked:#83d16c,
+        white:#ffffff,
+        blue:#4298ef,
+        red:#bb3a2a,
+        yellow:#d9af60,
+        gray:#9d9d9d,
+        bg_gray:#eaeaea,
+        bg_grayLight:#f9f9f9,
+        bg_blueLight:#e0f0fb,
+        bg_graywhite:#f8f8f8,
+        pinkLight:#f7e6e2,
+        bg_origin:#ce614e,
+        orangeLight:#fdf9d8,
+        bg_grayHeavy:#3b3c3e
+      ),
+      button:(
+        base:#fff,
+        contrast:#717171,
+        grayHeavy:#515254,
+        green:#7dca7b
+      ),
+    )
+  )
+);
+
 
 // Ionicons
 // --------------------------------------------------
@@ -87,4 +184,4 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 @import "./content.scss";
-@import 'style.scss';
+@import './style.scss';
