@@ -140,16 +140,32 @@ page-product-list {
             @include app-font(32);
         }
 
-        .icon{
-            @include app-font(100);
-            position: absolute;
-            top: 20px;
-            z-index: 33;
-            height: 40px;
-            padding-left:16px;
+        .icon_cart{
+            position:fixed;
+            width: 44px;
+            height: 44px;
+            bottom: 18px;
+            left:16px;
+            z-index:33;
+            border-radius:50% 50%;
+
+            .icon{
+                @include app-font(70);
+                position: absolute;
+                width:32px;
+                height: 32px;
+                top: 6px;
+                left: 6px;
+                z-index: 33;
+                border-radius:50% 50%;
+                text-align:center;
+                padding-top: 4px;
+            }
+
         }
 
         .item{
+
             .label{
                 margin: 0 8px 0 0;
 
@@ -159,22 +175,70 @@ page-product-list {
 
                 p{
                     padding:0;
-                    @include app-font(26);
+                    @include app-font(24);
                 }
-            }
-
-            button{
-                margin:0;
-                border-radius:0;
-                height:53px;
-                padding:0 1.5em;
             }
 
             &.item-block .item-inner{
                 border:0;
                 padding-right:0;
             }
-            
+        }
+
+        .list_cart{
+            margin:0;
+
+            .list-header{
+                h3{
+                    @include app-font(38);
+                }
+
+                button{
+                    font-weight:normal;
+                    @include app-font(36);
+                    padding:0
+                }
+            }
+
+            .item{
+                padding-left: 12px;
+
+                border-bottom:1px solid #ddd;
+
+                & [item-end]{
+                    margin-right:12px;
+                }
+            }
+
+            .cart_product{
+
+                .counting{
+                    float:right;
+                    margin-left:10px;
+                }
+            }
+
+            .dish_free{
+                padding-right:72px;
+            }
+        }
+
+        .footer{
+
+            .grayHeavy_bg{
+
+                .white_font{
+                    @include app-font(40,bold);
+                }
+
+                button{
+                    margin:0;
+                    border-radius:0;
+                    height:53px;
+                    padding:0 1.5em;
+                    @include app-font(40,bold);
+                }
+            }
         }
     }
 }

@@ -1,214 +1,63 @@
 <ion-content class="app-default-theme-1" (ionScroll)="scrollFun($event)">
     <ion-list>
         <ion-list-header id="0"><h3>热销&nbsp;<span>大家喜欢吃，才叫好吃</span></h3></ion-list-header>
-        <ion-item>
+        <ion-item *ngFor="let p of productList;let i=index">
             <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
+                <img [src]="'./assets/imgs/'+p.imgLogo">
             </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber (counting)="countNum($event,'超级披萨（10英寸）',34)"></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
+            <h2>{{p.proName}}</h2>
+            <p>{{p.proDesc}}</p>
+            <p>{{p.proSell}}</p>
+            <label class="yellow_txt" *ngIf="p.prodisc"><ion-badge class="list_border yellow_txt">{{p.prodisc}}</ion-badge> 每单限1份优惠</label>
+            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>{{p.realPrice}} </span>&nbsp;<s class="price_desc">¥{{p.price}}</s>
+            <div item-end><products-counting #productsNumber [productsNumber]="p.selling" [totalNum]="p.sum" (counting)="countNum($event,p)"></products-counting></div></ion-item>
         </ion-item>
     </ion-list>
 
     <ion-list>
         <ion-list-header id="1"><h3>特惠套餐&nbsp;<span>优惠又好吃</span></h3></ion-list-header>
-        <ion-item>
+        
+        <ion-item *ngFor="let p of productList;let i=index">
             <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
+                <img [src]="'./assets/imgs/'+p.imgLogo">
             </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
+            <h2>{{p.proName}}</h2>
+            <p>{{p.proDesc}}</p>
+            <p>{{p.proSell}}</p>
+            <label class="yellow_txt" *ngIf="p.prodisc"><ion-badge class="list_border yellow_txt">{{p.prodisc}}</ion-badge> 每单限1份优惠</label>
+            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>{{p.realPrice}} </span>&nbsp;<s class="price_desc">¥{{p.price}}</s>
+            <div item-end><products-counting #productsNumber [productsNumber]="p.selling" [totalNum]="p.sum" (counting)="countNum($event,p)"></products-counting></div></ion-item>
         </ion-item>
     </ion-list>
     <ion-list>
         <ion-list-header id="2"><h3>10寸榴莲披萨&nbsp;<span>优惠又好吃</span></h3></ion-list-header>
-        <ion-item>
+        
+        <ion-item *ngFor="let p of productList;let i=index">
             <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
+                <img [src]="'./assets/imgs/'+p.imgLogo">
             </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-                <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-start>
-                <img src="./assets/imgs/logo_03.png">
-            </ion-thumbnail>
-            <h2>超级披萨（10英寸）</h2>
-            <p>烟肉、火腿、美式香肠片、烤肠蘑菇</p>
-            <p>月售147 &nbsp; 好评率100%</p>
-            <label class="yellow_txt"><ion-badge class="list_border yellow_txt">5折</ion-badge> 每单限1份优惠</label>
-            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>34 </span>&nbsp;<s class="price_desc">¥68</s>
-            <div item-end><products-counting #productsNumber></products-counting></div></ion-item>
+            <h2>{{p.proName}}</h2>
+            <p>{{p.proDesc}}</p>
+            <p>{{p.proSell}}</p>
+            <label class="yellow_txt" *ngIf="p.prodisc"><ion-badge class="list_border yellow_txt">{{p.prodisc}}</ion-badge> 每单限1份优惠</label>
+            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>{{p.realPrice}} </span>&nbsp;<s class="price_desc">¥{{p.price}}</s>
+            <div item-end><products-counting #productsNumber [productsNumber]="p.selling" [totalNum]="p.sum" (counting)="countNum($event,p)"></products-counting></div></ion-item>
         </ion-item>
     </ion-list>
     <ion-list>
         <ion-list-header id="3"><h3>10寸榴莲披萨特惠</h3></ion-list-header>
+
+        <ion-item *ngFor="let p of productList;let i=index">
+            <ion-thumbnail item-start>
+                <img [src]="'./assets/imgs/'+p.imgLogo">
+            </ion-thumbnail>
+            <h2>{{p.proName}}</h2>
+            <p>{{p.proDesc}}</p>
+            <p>{{p.proSell}}</p>
+            <label class="yellow_txt" *ngIf="p.prodisc"><ion-badge class="list_border yellow_txt">{{p.prodisc}}</ion-badge> 每单限1份优惠</label>
+            <ion-item class="price_bottom"><span class="origin_bg" item-start><label>¥</label>{{p.realPrice}} </span>&nbsp;<s class="price_desc">¥{{p.price}}</s>
+            <div item-end><products-counting #productsNumber [productsNumber]="p.selling" [totalNum]="p.sum" (counting)="countNum($event,p)"></products-counting></div></ion-item>
+        </ion-item>
     </ion-list>
     <ion-list>
         <ion-list-header id="4"><h3>12寸榴莲披萨</h3></ion-list-header>

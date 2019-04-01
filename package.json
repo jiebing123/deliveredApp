@@ -1,5 +1,5 @@
 {
-  "name": "deliveredApp",
+  "name": "deliveredapp",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -35,6 +35,11 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
     "ionic": "^3.20.1",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
@@ -44,6 +49,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
+    "gulp": "^4.0.0",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",
@@ -65,5 +71,14 @@
       "android",
       "ios"
     ]
+  },
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiebing123/deliveredApp.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiebing123/deliveredApp/issues"
   }
 }

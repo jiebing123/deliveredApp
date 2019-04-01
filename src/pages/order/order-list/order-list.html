@@ -1,0 +1,88 @@
+<ion-header>
+
+    <app-header class="app-default-theme-1" [mineHeader]="'normal'"></app-header>
+
+</ion-header>
+
+<ion-content class="app-default-theme-1 content_bg">
+  <div class="bg_theme"></div>
+    <ion-list class="header_title">
+      <ion-item class="font-size-14">订单配送至</ion-item>
+      <ion-item class="font-size-18">亚餐厅（大大大大）<ion-icon name="ios-arrow-forward" item-end></ion-icon> </ion-item>
+      <ion-item class="font-size-14">徐。。 1234344452</ion-item>
+    </ion-list>
+
+    <ion-list class="white_bg order_detail">
+      <ion-item class="border_bottom">
+        <label>送达时间</label>
+        <button ion-button clear item-end>尽快送达（14:48送达）<ion-icon name="ios-arrow-forward" class="gray_icon"></ion-icon></button>
+      </ion-item>
+      <ion-item>
+        <label>支付方式</label>
+        <button ion-button clear item-end>支付宝<ion-icon name="ios-arrow-forward" class="gray_icon"></ion-icon></button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="white_bg order_detail order_list" style="margin-bottom:0;">
+      <ion-item class="detail_header border_bottom">娇娇披萨（建设路店）</ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="./assets/imgs/logo_03.png"/>
+        </ion-thumbnail>
+        <label>海盐芝士油切乌龙</label>
+        <div item-end><span style="margin-right:10px;">x1</span><label>¥18</label></div>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="./assets/imgs/logo_03.png"/>
+        </ion-thumbnail>
+        <label>海盐芝士油切乌龙2</label>
+        <div item-end><span style="margin-right:10px;">x1</span><label>¥18</label></div>
+      </ion-item>
+
+      <ion-item>
+          <label class="icon_blueLight blueLight_bg" item-start>配送费</label>商家配送
+          <label item-end>¥5</label>
+      </ion-item>
+      <ion-item class="border_bottom">
+          <label class="icon_pink pink_bg" item-start>满减</label>在线支付立减优惠
+          <label item-end class="icon_pink">-¥5</label>
+      </ion-item>
+      <ion-item>
+        <label>红包</label>
+        <button ion-button clear item-end class="icon_pink">-¥5<ion-icon name="ios-arrow-forward" class="gray_icon"></ion-icon></button>
+      </ion-item>
+      <ion-item>
+        <label>优惠说明</label>
+        <label item-end>小计¥35</label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="white_bg order_detail order_list">
+      <ion-item class="border_bottom">
+        <label>餐具份数</label>
+        <button ion-button clear item-end class="sub_txt">未选择<ion-icon name="ios-arrow-forward" class="gray_icon"></ion-icon></button>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <label>订单备注</label>
+        <button ion-button clear item-end class="sub_txt">口味、偏好<ion-icon name="ios-arrow-forward" class="gray_icon"></ion-icon></button>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <label>发票信息</label>
+        <button ion-button clear item-end class="sub_txt">不需要开发票<ion-icon name="ios-arrow-forward" class="gray_icon"></ion-icon></button>
+      </ion-item>
+      <ion-item>
+        <label>号码保护</label>
+        <p>号码保护中，将对商家、骑手隐藏您对真实手机号</p>
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer class="app-default-theme-1 product_footer">
+  <ion-item class="grayHeavy_bg">
+      <h3 class="white_font" item-start>¥{{priceTxt}}</h3>
+      <p class="sub_txt">| 已优惠5元</p>
+      <button class="btn_green" item-end>确认支付</button>
+  </ion-item>
+</ion-footer>
+

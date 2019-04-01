@@ -1,25 +1,23 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-@IonicPage({
-  name:'order'
-})
 
-@Component({
-  selector: 'page-order',
-  templateUrl: 'order.html',
+@IonicPage({
+  name:'order-list'
 })
-export class OrderPage {
+@Component({
+  selector: 'page-order-list',
+  templateUrl: 'order-list.html',
+})
+export class OrderListPage {
+
+  priceTxt=35;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderPage');
-  }
-
-  order_list(){
-    this.navCtrl.push('order-list');
+    console.log('ionViewDidLoad OrderListPage');
   }
 
 }

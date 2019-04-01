@@ -1,11 +1,11 @@
 <ion-header>
 
-    <app-header class="app-default-theme-1" [mineHeader]="'productList'"></app-header>
+    <app-header class="app-default-theme-1" [mineHeader]="'productList'" (click)="isShowCart=false"></app-header>
 
 </ion-header>
 
 
-<ion-content class="app-default-theme-1" (ionScroll)="onScroll($event)">
+<ion-content class="app-default-theme-1" (ionScroll)="onScroll($event)" (click)="isShowCart=false">
     <div class="item_header">
         <div class="item_imgLogo">
             <img src="./assets/imgs/logo_03.png" class="img_logo">
@@ -47,7 +47,7 @@
                         </dl>
                     </ion-col>
                     <ion-col col-9 class="product_list">
-                        <product-list [type]="product_type" #productList (outer)="addCart($event)"></product-list>
+                        <product-list [type]="product_type" [removeId]="removeId" [removeNum]="removeNum" #productList (outer)="addCart($event)"></product-list>
                     </ion-col>
                 </ion-row>
             <!-- </ion-scroll> -->
@@ -68,15 +68,32 @@
 </ion-content>
 
 <ion-footer class="app-default-theme-1 product_footer">
-    <div>
-        <ion-icon name="ios-cube" class="sub_txt"></ion-icon>
+    <div class="icon_cart btn_gray" (click)="cart_click()">
+        <ion-icon name="ios-cart" class="sub_txt icon_bg" #btn_cart></ion-icon>
     </div>
     <p text-center class="orangeLight_bg">满20减6，满60减13，满80减18</p>
+    <ion-list class="list_cart bg_input" id="isShowCart" *ngIf="isShowCart && cartList.length>0">
+        <ion-list-header>
+            <h3>已选商品</h3>
+            <button ion-button clear item-end class="black_txtColor" (click)="btn_clear()"><ion-icon name="ios-trash-outline"></ion-icon>清空</button>
+        </ion-list-header>
+        <ion-item class="products_list" *ngFor="let c of cartList">
+            <h3 item-start>{{c.name}}</h3>
+            <div item-end class="cart_product">
+                <label>{{c.realPrice}}</label>
+                <products-counting class="counting" [productsNumber]="c.num" (counting)="countNum($event,c.id)"></products-counting>
+            </div>
+        </ion-item>
+        <ion-item class="dish_free">
+            <h3>餐盒费</h3>
+            <div item-end><label>2</label></div>
+        </ion-item>
+    </ion-list>
     <ion-item class="grayHeavy_bg">
         <ion-avatar item-start>
         </ion-avatar>
-        <h3 class="sub_txt">未选购商品</h3>
+        <h3 class="sub_txt" [innerHTML]="priceTxt"></h3>
         <p class="sub_txt">另需配送费5元</p>
-        <button class="btn_green" item-end disabled>¥30起送</button>
+        <button class="btn_green" item-end [disabled]="btn_order!='去结算'">{{btn_order}}</button>
     </ion-item>
 </ion-footer>

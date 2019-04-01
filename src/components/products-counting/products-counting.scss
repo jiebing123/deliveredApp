@@ -2,5 +2,16 @@ products-counting {
     & > div{
         height: 26px;
         line-height: 26px;
+
+        .button{
+            background-color:transparent;
+            height:auto;
+            margin:0 0 14px;
+            padding:0;
+        }
+
+        .icon{
+            margin-right:0;
+        }
     }
 }

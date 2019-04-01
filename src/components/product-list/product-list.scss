@@ -78,11 +78,6 @@ product-list {
                 padding-right:0;
             }
 
-            .price_desc{
-                @include app-font(26);
-                color:gray;
-            }
-
             .price_bottom{
                 min-height: 2rem;
 

@@ -78,6 +78,10 @@ $themeTypes:default vip;
                     color:app-color($themeId,$themeType,icon,pink);
                 }
 
+                .icon_blueLight{
+                    color:app-color($themeId,$themeType,icon,blueLight);
+                }
+
                 .red_icon{
                     color:app-color($themeId,$themeType,icon,red);
                 }
@@ -86,10 +90,27 @@ $themeTypes:default vip;
                     color:app-color($themeId,$themeType,icon,blue);
                 }
 
+                .gray_icon{
+                    color:app-color($themeId,$themeType,icon,gray);
+                }
+
+                .blueLight_bg{
+                    background-color:app-content-color($themeId,$themeType,bg_blueLight,true);
+                }
+
+                .bg_theme{
+                    background:app-content-color($themeId,$themeType,themeColor,true);
+                    color:app-content-color($themeId,$themeType,txt,true);
+                }
+
                 &.content_bg{
                     &.content-ios,&.content-android,&.content-md{
                         background-color:app-content-color($themeId,$themeType,contrast,true);
                     }
+                }
+
+                .grayLight_bg{
+                    background-color:app-content-color($themeId,$themeType,contrast,true);
                 }
 
                 .white_bg{
@@ -133,8 +154,12 @@ $themeTypes:default vip;
                     color:app-content-color($themeId,$themeType,yellow,true);
                 }
 
+                .black_txtColor{
+                    color:app-content-color($themeId,$themeType,txt_black,true);
+                }
+
                 .black_txt{
-                    color:app-content-color($themeId,$themeType,txt,true);
+                    color:app-content-color($themeId,$themeType,txt_black,true);
                 }
 
                 .sub_title{
@@ -171,6 +196,16 @@ $themeTypes:default vip;
 
                 .btn_green{
                     background-color:app-button-color($themeId,$themeType,green);
+                    color:app-content-color($themeId,$themeType,txt,true);
+                }
+
+                .blue_bg{
+                    background-color:app-content-color($themeId,$themeType,blue,true);
+                    color:app-content-color($themeId,$themeType,txt,true);
+                }
+
+                .white_font{
+                    color:app-content-color($themeId,$themeType,white,true);
                 }
             }
         }

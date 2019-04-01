@@ -99,11 +99,19 @@ $app-colors:(
         yellow:#d9af60,
         red:#ed171f,
         blue:#4298ef,
-        pink:#c67079
+        pink:#c67079,
+        gray:#d1d3d2,
+        blueLight:#5ba6db
       ),
       content:(
+        themeColor:(
+            type:linear,
+            direction:left,
+            list:(#56adf1 0%,#368dee 100%)
+        ),
         txt:#fff,
         contrast:#f5f5f5,
+        txt_black:#333333,
         sub_title:#435359,
         toggle:#e5e5e5,
         toggleChecked:#83d16c,
@@ -129,7 +137,7 @@ $app-colors:(
         ),
         contrast:#fff,
         grayHeavy:#515254,
-        green:#7dca7b
+        green:#32db64
       ),
     )
   ),
@@ -140,8 +148,10 @@ $app-colors:(
         contrast:#383838,
       ),
       content:(
+        themeColor:#fff,
         txt:#383838,
         contrast:#eceeeb,
+        txt_black:#333333,
         sub_title:#435359,
         toggle:#e5e5e5,
         toggleChecked:#83d16c,
@@ -163,7 +173,7 @@ $app-colors:(
         base:#fff,
         contrast:#717171,
         grayHeavy:#515254,
-        green:#7dca7b
+        green:#32db64
       ),
     )
   )

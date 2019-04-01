@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, ViewChild, ElementRef, NgZone, Renderer2 } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Content } from 'ionic-angular';
 import { Observable, Subscription } from 'rxjs';
 import { ElementDef } from '@angular/core/src/view';
@@ -23,9 +23,22 @@ export class ProductListPage {
     observable:Observable<any>;
     @ViewChild('row_tabs') row_tabs:ElementRef;
     tabScroll:boolean=false;
-    cartList:[any];
+    cartList=[];
+    @ViewChild('btn_cart') btn_cart:ElementRef;
+    btn_order='';
+    orderFirstTxt='¥30起送';
+    priceTxt='';
+    priceFirstTxt='未选购商品';
+    realSum=0;
+    sum=0;
+    isShowCart:boolean=false;
+    removeId=0;
+    removeNum=0;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,public zone:NgZone) {
+    constructor(public navCtrl: NavController, public navParams: NavParams,public zone:NgZone,private renderer:Renderer2) {
+        this.cartList=[];
+        this.priceTxt=this.priceFirstTxt;
+        this.btn_order=this.orderFirstTxt;
     }
 
     ngOnInit():void{
@@ -34,6 +47,10 @@ export class ProductListPage {
         })
 
         this.subscription=this.productList.isScroll.subscribe(isScroll => {
+            
+            if(this.content.contentTop>=140){
+                this.renderer.setStyle(this.row_tabs,'position','fixed');
+            }
             if(isScroll=='down'){
                 if(!this.tabScroll){
                     var top=this.row_tabs.nativeElement.offsetTop;
@@ -72,12 +89,88 @@ export class ProductListPage {
     }
 
     onScroll(e){
-      console.log(e);
+      //console.log(e);
     }
 
     addCart(productList){
-        console.log(productList)
-        this.cartList.push(productList);
+        let index:number=-1;
+        this.removeId=productList.id;
+        this.removeNum=productList.num;
+
+        if(this.cartList.length>0){
+            this.cartList.map((arr,i)=>{
+                if(arr.id==productList.id){
+                    index=i;
+                    return i;
+                }
+            })
+        }
+        
+        if(index<0 || this.cartList.length<=0){
+            this.cartList.push(productList);
+        }else{
+            if(productList.num>0){
+                this.cartList[index].num=productList.num;
+            }else{
+                this.cartList.splice(index,1);
+            }
+        }
+
+        this.costTotal(productList.numOps,productList.realPrice,productList.price);
+    }
+
+    cart_click(){
+        if(this.cartList.length>0){
+            this.isShowCart=true;
+        }
+    }
+
+    countNum(num,id){
+        var index;
+        this.cartList.map((arr,i)=>{
+            if(arr.id==id){
+                index=i;
+                return i;
+            }
+        })
+        
+        this.costTotal(num.ops,this.cartList[index].realPrice,this.cartList[index].price);
+
+        if(num.num<=0){
+            this.cartList.splice(index,1);
+            if(this.cartList.length<=0){
+                this.btn_clear();
+            }
+        }else{
+            this.cartList[index].num=num.num;
+            this.removeId=id;
+            this.removeNum=num.num;
+        }
+    }
+
+    costTotal(ops,realPrice,price){
+        if(ops=='add'){
+            this.realSum+=realPrice;
+            this.sum+=price;
+        }else{
+            this.realSum-=realPrice;
+            this.sum-=price;
+        }
+        this.priceTxt='<span class="white_font">¥'+this.realSum+'</span>&nbsp;<s class="price_desc">¥'+this.sum+'</s>';
+        this.renderer.addClass(this.btn_cart.nativeElement,'blue_bg');
+        this.btn_order='去结算';
+    }
+
+    btn_clear(){
+        this.priceTxt=this.priceFirstTxt;
+        this.btn_order=this.orderFirstTxt;
+        this.realSum=0;
+        this.sum=0;
+        this.cartList=[];
+        this.removeId=0;
+        this.removeNum=-1;
+        this.renderer.removeClass(this.btn_cart.nativeElement,'blue_bg');
+        this.isShowCart=false;
     }
     
 
